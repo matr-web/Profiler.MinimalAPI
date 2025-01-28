@@ -32,8 +32,8 @@ public class AuthService : IAuthService
 
         // Generate Token.
         var token = new JwtSecurityToken(
-                _config.GetValue<string>("JwtSettings:Issuer"),
-                _config.GetValue<string>("JwtSettings:Audience"),
+                issuer: _config.GetValue<string>("JwtSettings:Issuer"),
+                audience: _config.GetValue<string>("JwtSettings:Audience"),
                 claims: claims,
                 expires: DateTime.Now.AddHours(8),
                 signingCredentials: creds
